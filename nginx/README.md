@@ -3,7 +3,7 @@
 ## TLDR; nginx:1.22.0 only has protection 
 
 ## Setup
-```conf
+```yaml
 server {
  listen 80;
  server_name localhost;
@@ -30,8 +30,10 @@ docker run -it --rm -p 80:80 -v ./default.conf:/etc/nginx/conf.d/default.conf ng
 ```
 
 just space:
-```http
-vigneshsb@Vigneshs-MacBook-Pro ~ % curl -i localhost -H "wtf : hi"     
+```bash
+curl -i localhost -H "wtf : hi"     
+```
+```yaml
 HTTP/1.1 200 OK
 Server: nginx/1.14.0
 Date: Fri, 19 Jul 2024 16:43:14 GMT
@@ -61,7 +63,7 @@ CL,TE with space:
 ```bash
 curl -i -X POST localhost -H "Content-Length: 0" -H "Transfer-Encoding : chunked"
 ```
-```http
+```yaml
 HTTP/1.1 200 OK
 Server: nginx/1.14.0
 Date: Fri, 19 Jul 2024 16:55:26 GMT
@@ -82,8 +84,10 @@ docker run -it --rm -p 80:80 -v ./default.conf:/etc/nginx/conf.d/default.conf ng
 ```
 
 just space:
-```http
-vigneshsb@Vigneshs-MacBook-Pro ~ % curl -i localhost -H "wtf : hi"
+```bash
+curl -i localhost -H "wtf : hi"
+```
+```yaml
 HTTP/1.1 200 OK
 Server: nginx/1.21.0
 Date: Fri, 19 Jul 2024 16:44:27 GMT
@@ -98,7 +102,7 @@ CL,TE without space:
 ```bash
 curl -i -X POST localhost -H "Content-Length: 0" -H "Transfer-Encoding: chunked"
 ```
-```http
+```yaml
 HTTP/1.1 200 OK
 Server: nginx/1.21.0
 Date: Fri, 19 Jul 2024 17:00:22 GMT
@@ -113,7 +117,7 @@ CL,TE with space:
 ```bash
 curl -i -X POST localhost -H "Content-Length: 0" -H "Transfer-Encoding : chunked"
 ```
-```http
+```yaml
 HTTP/1.1 200 OK
 Server: nginx/1.21.0
 Date: Fri, 19 Jul 2024 17:00:55 GMT
@@ -134,15 +138,18 @@ docker run -it --rm -p 80:80 -v ./default.conf:/etc/nginx/conf.d/default.conf ng
 ```
 
 just space:
+```bash
+curl -i localhost -H "wtf : hi"
+```
 ```http
-vigneshsb@Vigneshs-MacBook-Pro ~ % curl -i localhost -H "wtf : hi"
 HTTP/1.1 400 Bad Request
 Server: nginx/1.22.0
 Date: Fri, 19 Jul 2024 16:45:14 GMT
 Content-Type: text/html
 Content-Length: 157
 Connection: close
-
+```
+```html
 <html>
 <head><title>400 Bad Request</title></head>
 <body>
