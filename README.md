@@ -20,6 +20,8 @@ According to the HTTP spec when a request has both CL and TE, TE is given higher
 CL counting: the Content length count begins after the empty line between the headers and the body of the request
 and `\r\n` is counted as 2 bytes.
 
+TE counting: when there is TE: 0  then the server would read 0\r\n\r\n that's it.
+
 POST request parsing
 ```yaml
 POST / HTTP/1.1
