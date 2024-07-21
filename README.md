@@ -17,6 +17,8 @@ Only POST requires CL or TE
 
 According to the HTTP spec when a request has both CL and TE, TE is given higher priority.
 
+CL counting: the Content length count begins after the empty line between the headers and the body of the request
+and `\r\n` is counted as 2 bytes.
 
 POST request parsing
 ```yaml

