@@ -16,7 +16,7 @@ request_part1 = (
     "usr"
 )
 sock.sendall(request_part1.encode())
-
+# newsock = socket.socket(
 # Wait for a bit before sending the rest
 time.sleep(2)  # Adjust the delay as needed
 
