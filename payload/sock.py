@@ -1,5 +1,6 @@
 import socket
 import time
+# host = 'localhost'
 host = 'gunicorn-alb-1241110790.ap-south-1.elb.amazonaws.com'
 # host = input("Enter host name: ")
 port = 80
